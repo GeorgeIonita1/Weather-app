@@ -1,0 +1,143 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h3 {
+    font-size: 38px;
+}
+
+main {
+    padding: 10vh 5vw 0;
+    background-color: antiquewhite;
+}
+
+header {
+    text-align: right;
+    position: relative;
+    
+    button {
+        position: absolute;
+        top: 5px;
+        right: 7px;
+        border-radius: 50%;
+        padding: 15px 4px;
+        font-size: 12px;
+    }
+    
+    section {
+        position: absolute;
+        right: 0;
+    }
+
+    input {
+        font-size: 20px;
+        border-radius: 40px;
+        padding: 16px 27px;
+        border: 1px solid blue;
+    }
+
+    
+    ul {
+        list-style-type: none;
+        margin-top: 16px;
+        text-align: left;
+        border-radius: 13px;
+        background-color: palevioletred;
+        max-width: 300px;
+        margin-left: auto;
+
+        li {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 16px 30px;
+            
+            &:hover {
+                background-color: wheat;
+            }
+            
+            &:first-child {
+                border-top-left-radius: 13px;
+                border-top-right-radius: 13px;
+            }
+            
+            &:last-child {
+                border-bottom-left-radius: 13px;
+                border-bottom-right-radius: 13px;
+            }
+        }
+    }
+    
+}
+
+section.content {
+    margin-top: 20px;
+    border-radius: 13px;
+    padding: 20px;
+}
+
+.hourly {
+    &Wrapper {
+        display: flex;
+        
+        > * {
+            flex-basis: 50%;
+        }
+
+        .card {
+            background-color: aliceblue;
+            border-radius: 13px;
+            padding: 35px 45px;
+            margin-top: 43px;
+        }
+    }
+
+    &Details {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+    }
+
+
+}
+
+.renderedResults {
+    text-align: left;
+    margin-top: 46px;
+    background-color: steelblue;
+    border-radius: 13px;
+    padding: 10px 10px;
+}
+
+.resultsContainer {
+    li {
+        border: 1px solid red;
+        padding: 10px 21px;
+    }
+}
+
+.daily {
+    &Container {
+        margin-top: 100px;
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 35px;
+        row-gap: 50px;
+    }
+
+    &Item {
+        background-color: aliceblue;
+        flex-basis: calc(33.3% - 70px / 3);
+        padding: 23px 30px;
+        border-radius: 13px;
+
+        h3 {
+            text-align: center;
+        }
+
+        .cardItems {
+            margin-top: 40px;
+        }
+    }
+}
