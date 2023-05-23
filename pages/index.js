@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 import LocationSearch from "./components/LocationSearch";
 import HourlyForecast from "./components/HorlyForecast";
-import DailyForecast from "./components/DailyForecast";
+import Card from "./components/Card";
 
 export default function Home() {
   const [location, setlocation] = useState(null);
@@ -80,7 +80,7 @@ export default function Home() {
         <section className="content">
           {hourly && <HourlyForecast hourly={hourly} localTime={localTime} />}
           <div className="dailyContainer">
-            {daily && daily.map(day => <DailyForecast day={day} localTime={localTime} />)}
+            {daily && daily.map(day => <Card data={day} localTime={localTime} />)}
           </div>
         </section>
       )}

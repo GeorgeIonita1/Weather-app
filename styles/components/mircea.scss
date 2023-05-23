@@ -8,6 +8,10 @@ h3 {
     font-size: 38px;
 }
 
+h4 {
+    color: blueviolet;
+}
+
 main {
     padding: 10vh 5vw 0;
     background-color: antiquewhite;
@@ -80,7 +84,10 @@ section.content {
 .hourly {
     &Wrapper {
         display: flex;
-        
+        justify-content: space-between;
+        align-items: center;
+        gap: 10%;
+
         > * {
             flex-basis: 50%;
         }
@@ -92,14 +99,6 @@ section.content {
             margin-top: 43px;
         }
     }
-
-    &Details {
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-start;
-    }
-
-
 }
 
 .renderedResults {
@@ -126,18 +125,44 @@ section.content {
         row-gap: 50px;
     }
 
-    &Item {
-        background-color: aliceblue;
-        flex-basis: calc(33.3% - 70px / 3);
-        padding: 23px 30px;
-        border-radius: 13px;
+}
 
-        h3 {
-            text-align: center;
+img {
+    position: static !important;
+    inset: unset !important;
+    object-fit: contain;
+}
+
+.card {
+    background-color: aliceblue;
+    flex-basis: calc(33.3% - 70px / 3);
+    padding: 23px 30px;
+    border-radius: 13px;
+
+    &Header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        > * {
+            flex-shrink: 0;
+        }
+    }
+
+    &Footer {
+        display: flex;
+        justify-content: space-between;
+        gap: max(32px, 10%);
+        margin-top: 20px;
+
+        &ImgWrapper {
+            aspect-ratio: 1;
+            flex-basis: clamp(100px, 50%, 150px);
         }
 
-        .cardItems {
-            margin-top: 40px;
+        &Details {
+            flex-shrink: 0;
+            align-self: center;
         }
     }
 }
