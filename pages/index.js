@@ -13,10 +13,6 @@ export default function Home() {
 
   const localTime = new Date().getHours();
 
-  const handleGeocodingSearch = () => {
-    
-  }
-
   const handleDetailsSearch = d => {
     const { latitude, longitude, timezone } = d;
 
