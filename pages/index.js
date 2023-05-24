@@ -79,7 +79,7 @@ export default function Home() {
       {(hourly || daily) && (
         <section className="content">
           {hourly && <HourlyForecast hourly={hourly} localTime={localTime} />}
-          <div className="dailyContainer">
+          <div className="containerDaily">
             {daily && daily.map(day => <Card data={day} localTime={localTime} />)}
           </div>
         </section>

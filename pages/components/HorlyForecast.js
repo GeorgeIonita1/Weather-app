@@ -56,7 +56,7 @@ export default function HourlyForecast({hourly, localTime}) {
   }
 
   return (
-    <div className='hourlyWrapper'>
+    <div className='containerHourly'>
       <div className='hourlyTable'>
         <Line options={options} data={data} />
       </div>

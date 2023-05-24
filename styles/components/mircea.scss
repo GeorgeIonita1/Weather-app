@@ -12,6 +12,12 @@ h4 {
     color: blueviolet;
 }
 
+img {
+    position: static !important;
+    inset: unset !important;
+    object-fit: contain;
+}
+
 main {
     padding: 10vh 5vw 0;
     background-color: antiquewhite;
@@ -72,7 +78,6 @@ header {
             }
         }
     }
-    
 }
 
 section.content {
@@ -81,58 +86,28 @@ section.content {
     padding: 20px;
 }
 
-.hourly {
-    &Wrapper {
+.container {
+    &Hourly {
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 10%;
-
+        
         > * {
             flex-basis: 50%;
         }
-
-        .card {
-            background-color: aliceblue;
-            border-radius: 13px;
-            padding: 35px 45px;
-            margin-top: 43px;
-        }
     }
-}
 
-.renderedResults {
-    text-align: left;
-    margin-top: 46px;
-    background-color: steelblue;
-    border-radius: 13px;
-    padding: 10px 10px;
-}
-
-.resultsContainer {
-    li {
-        border: 1px solid red;
-        padding: 10px 21px;
-    }
-}
-
-.daily {
-    &Container {
+    &Daily {
         margin-top: 100px;
         display: flex;
         flex-wrap: wrap;
         column-gap: 35px;
         row-gap: 50px;
     }
-
 }
 
-img {
-    position: static !important;
-    inset: unset !important;
-    object-fit: contain;
-}
-
+// card component
 .card {
     background-color: aliceblue;
     flex-basis: calc(33.3% - 70px / 3);
