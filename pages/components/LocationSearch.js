@@ -1,10 +1,10 @@
-export default function LocationSearch({onSetLocation, onGeocodingSearch, geocodingResuts, onDetailsSearch, isVisible, onIsVisible}) {
+export default function LocationSearch({location, onSetLocation, onGeocodingSearch, geocodingResuts, onDetailsSearch, isVisible, onIsVisible}) {
     return (
         <header>
-            <button onClick={onGeocodingSearch}>Search</button>
             <input
             type="text"
             placeholder="Search City"
+            value={location}
             onChange={onSetLocation}
             onClick={onIsVisible}
             />

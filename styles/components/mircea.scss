@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: antiquewhite;
+}
+
 h3 {
     font-size: 38px;
 }
@@ -20,21 +24,11 @@ img {
 
 main {
     padding: 10vh 5vw 0;
-    background-color: antiquewhite;
 }
 
 header {
     text-align: right;
     position: relative;
-    
-    button {
-        position: absolute;
-        top: 5px;
-        right: 7px;
-        border-radius: 50%;
-        padding: 15px 4px;
-        font-size: 12px;
-    }
     
     section {
         position: absolute;
