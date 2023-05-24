@@ -1,4 +1,4 @@
-export default function LocationSearch({location, onSetLocation, onGeocodingSearch, geocodingResuts, onDetailsSearch, isVisible, onIsVisible}) {
+export default function LocationSearch({location, onSetLocation, geocodingResuts, onDetailsSearch, isVisible, onIsVisible}) {
     return (
         <header>
             <input
@@ -12,7 +12,7 @@ export default function LocationSearch({location, onSetLocation, onGeocodingSear
                 {(geocodingResuts && isVisible) && (
                 <ul>
                     {geocodingResuts.map(r => (
-                    <li onClick={() => onDetailsSearch(r)}>{`${r.name} ${r.country}`}</li>
+                        <li key={r.id} onClick={() => onDetailsSearch(r)}>{`${r.name} ${r.country}`}</li>
                     ))}
                 </ul>
                 )}

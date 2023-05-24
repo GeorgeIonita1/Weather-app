@@ -78,7 +78,6 @@ export default function Home() {
       <LocationSearch
         location={location}
         onSetLocation={handleSetLocation}
-        onGeocodingSearch={handleGeocodingSearch}
         geocodingResuts={geocodingResuts}
         onDetailsSearch={handleDetailsSearch}
         isVisible={isVisible}
@@ -89,7 +88,7 @@ export default function Home() {
         <section className="content">
           {hourly && <HourlyForecast hourly={hourly} localTime={localTime} />}
           <div className="containerDaily">
-            {daily && daily.map(day => <Card data={day} localTime={localTime} />)}
+            {daily && daily.map((day, index) => <Card key={index} data={day} localTime={localTime} />)}
           </div>
         </section>
       )}

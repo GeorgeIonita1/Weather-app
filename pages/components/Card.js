@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import { sunny } from './assets';
+
 export default function Card({data}) {
     const { maximum, minimum, precipitation, windspeed, feel, humidity, temperature } = data;
 
@@ -15,8 +17,9 @@ export default function Card({data}) {
                 <div className='cardFooter'>
                     <div className="cardFooterImgWrapper">
                         <Image
-                            src='/sun.png'
+                            src={sunny.source}
                             fill
+                            alt={sunny.description}
                         />
                     </div>
                     <div className='cardFooterDetails'>
