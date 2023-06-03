@@ -8,31 +8,34 @@ import {
     Tooltip,
     Legend,
   } from 'chart.js';
-  import { Line } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
+
 import Card from './Card';
   
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend
-  );
-  
-  const options = {
-    responsive: true,
-    innerWidth: '100%',
-    width: '100%',
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-    },
-  };
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
-export default function HourlyForecast({hourly, localTime}) {
+const localTime = new Date().getHours();
+
+const options = {
+  responsive: true,
+  innerWidth: '100%',
+  width: '100%',
+  plugins: {
+    legend: {
+      position: 'top',
+    },
+  },
+};
+
+export default function HourlyForecast({hourly}) {
   const { time, apparent_temperature, relativehumidity_2m, temperature_2m, windspeed_10m, precipitation_probability} = hourly;
   const labels = time.slice(localTime, localTime + 24).map(e => e.slice(-5));
   const myData = temperature_2m.slice(localTime, localTime + 24);
@@ -53,6 +56,7 @@ export default function HourlyForecast({hourly, localTime}) {
     precipitation: precipitation_probability[localTime],
     humidity: relativehumidity_2m[localTime],
     temperature: temperature_2m[localTime],
+    time: time[0]
   }
 
   return (

@@ -11,8 +11,6 @@ export default function Home() {
   const [hourly, setHourly] = useState(null);
   const [isVisible, setIsVisible] = useState(true);
 
-  const localTime = new Date().getHours();
-
   const handleDetailsSearch = d => {
     const { latitude, longitude, timezone } = d;
 
@@ -27,9 +25,9 @@ export default function Home() {
         const { temperature_2m_max, temperature_2m_min, precipitation_probability_mean, windspeed_10m_max, time } = res.daily;
         const packedState = [];
 
-        for (let i of temperature_2m_max) {
+        for (let e = 0; e < temperature_2m_max.length; e++) {
           packedState.push({
-            maximum: i
+            maximum: temperature_2m_max[e]
           })
         }
 
@@ -86,9 +84,9 @@ export default function Home() {
 
       {(hourly || daily) && (
         <section className="content">
-          {hourly && <HourlyForecast hourly={hourly} localTime={localTime} />}
+          {hourly && <HourlyForecast hourly={hourly} />}
           <div className="containerDaily">
-            {daily && daily.map((day, index) => <Card key={index} data={day} localTime={localTime} />)}
+            {daily && daily.map((day, index) => <Card key={index} data={day} />)}
           </div>
         </section>
       )}

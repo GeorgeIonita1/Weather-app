@@ -2,13 +2,22 @@ import Image from 'next/image';
 
 import { sunny } from './assets';
 
+const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const timeNow = weekdays[new Date().getDay()];
+
 export default function Card({data}) {
     const { maximum, minimum, precipitation, windspeed, feel, humidity, temperature, time } = data;
+    
+    const timeProps = weekdays[new Date(time).getDay()];
+
+    const displayDay = () => {
+        return timeNow == timeProps ? 'Today' : timeProps;
+    }
 
     return (
         <div className="card">
                 <div className="cardHeader">
-                    <h4>Monday</h4>
+                    <h4>{displayDay()}</h4>
                     {maximum && <h3>{maximum} °C</h3>}
                     {temperature && <h3>{temperature} °C</h3>}
                     
