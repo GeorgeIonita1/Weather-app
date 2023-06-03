@@ -24,7 +24,7 @@ export default function Home() {
     fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_min,temperature_2m_max,precipitation_probability_mean,windspeed_10m_max&timezone=${timezone}`)
       .then(res => res.json()
       .then(res => {
-        const { temperature_2m_max, temperature_2m_min, precipitation_probability_mean, windspeed_10m_max } = res.daily;
+        const { temperature_2m_max, temperature_2m_min, precipitation_probability_mean, windspeed_10m_max, time } = res.daily;
         const packedState = [];
 
         for (let i of temperature_2m_max) {
@@ -33,20 +33,24 @@ export default function Home() {
           })
         }
 
-        for (let gg = 0; gg < temperature_2m_min.length; gg++) {
-          packedState[gg].minimum = gg;
+        for (let e = 0; e < temperature_2m_min.length; e++) {
+          packedState[e].minimum = temperature_2m_min[e];
         }
         
         for (let e = 0; e < precipitation_probability_mean.length; e++) {
-          packedState[e].precipitation = e;
+          packedState[e].precipitation = precipitation_probability_mean[e];
         }
         
         for (let e = 0; e < windspeed_10m_max.length; e++) {
-          packedState[e].windspeed = e;
+          packedState[e].windspeed = windspeed_10m_max[e];
+        }
+        
+        for (let e = 0; e < time.length; e++) {
+          packedState[e].time = time[e];
         }
 
         setDaily(packedState);
-        setIsVisible(false)
+        setIsVisible(false);
       })
     );
   }

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { sunny } from './assets';
 
 export default function Card({data}) {
-    const { maximum, minimum, precipitation, windspeed, feel, humidity, temperature } = data;
+    const { maximum, minimum, precipitation, windspeed, feel, humidity, temperature, time } = data;
 
     return (
         <div className="card">

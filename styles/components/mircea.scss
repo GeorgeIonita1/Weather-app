@@ -90,6 +90,10 @@ section.content {
         > * {
             flex-basis: 50%;
         }
+
+        .card {
+            max-width: 500px;
+        }
     }
 
     &Daily {
