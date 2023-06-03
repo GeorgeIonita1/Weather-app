@@ -5,7 +5,7 @@ import HourlyForecast from "./components/HorlyForecast";
 import Card from "./components/Card";
 
 export default function Home() {
-  const [location, setlocation] = useState('');
+  const [locationInput, setlocation] = useState('');
   const [geocodingResuts, setGeocodingResults] = useState(null);
   const [daily, setDaily] = useState(null);
   const [hourly, setHourly] = useState(null);
@@ -63,18 +63,18 @@ export default function Home() {
 
   useEffect(() => {
     const timeOutId = setTimeout(() => {
-      fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${location}&count=10&language=en&format=json`)
+      fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${locationInput}&count=10&language=en&format=json`)
         .then(res => res.json())
         .then(res => setGeocodingResults(res.results));
     }, 600);
 
     return () => clearTimeout(timeOutId);
-  }, [location])
+  }, [locationInput])
 
   return (
     <main>
       <LocationSearch
-        location={location}
+        locationInput={locationInput}
         onSetLocation={handleSetLocation}
         geocodingResuts={geocodingResuts}
         onDetailsSearch={handleDetailsSearch}
